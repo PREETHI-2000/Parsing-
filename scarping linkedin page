@@ -1,0 +1,21 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+
+# specifies the path to the chromedriver.exe
+driver = webdriver.Chrome()
+
+# driver.get method() will navigate to a page given by the URL address
+driver.get('https://www.linkedin.com')
+
+pree_in_button = driver.find_element_by_class_name('nav__button-secondary')
+pree_in_button.click()
+username = driver.find_element_by_name('session_key')
+username.send_keys('your linkedin id')
+password = driver.find_element_by_name('session_password')
+password.send_keys('your linkedin pass ')
+log_in_button = driver.find_element_by_class_name('btn__primary--large')
+log_in_button.click()
+search_query = driver.find_element_by_xpath('//*[@id="ember41"]/input')
+search_query.send_keys('"python jobs in INDIA"')
+search_query.send_keys(Keys.RETURN)
