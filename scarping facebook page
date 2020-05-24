@@ -1,0 +1,20 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+# specifies the path to the chromedriver.exe
+driver = webdriver.Chrome()
+
+# driver.get method() will navigate to a page given by the URL address
+driver.get('https://www.facebook.com')
+
+username = driver.find_element_by_name('email')
+username.send_keys('your facebook id')
+password = driver.find_element_by_name('pass')
+password.send_keys('your facebook password')
+log_in_button = driver.find_element_by_xpath('//*[@id="u_0_b"]')
+log_in_button.click()
+search_query = driver.find_element_by_name('q')
+search_query.send_keys('"python developer jobs in INDIA"')
+
+search_query.send_keys(Keys.RETURN)
+search_query.click()
